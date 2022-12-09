@@ -12,7 +12,7 @@ bootstrap.min.css">
 	<script src=
 "https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
 	</script>
-     <style>
+    <style>
         .card {
     min-height: 150px;
     margin-left:40px;
@@ -41,13 +41,14 @@ include 'connet.php';
 $record= mysqli_query($con, "select *from tableeco");
 while($row=mysqli_fetch_array($record)){
     $check_page=$row['ptype'];
-    if($check_page==='Quiling'){
+    if($check_page==='Painting'){
 
 echo "
 <div class='col-md-5 col-lg-4  '>
 <form action='InsertCard.php' method='post'>
+
     <div class='card' style='width: 18rem';>
-  <img class='card-img-top' src='../admin/product/$row[pimage]' style:'height=170px; width=300px' >
+  <img class='card-img-top' src='../admin/product/$row[pimage]'>
   <div class='card-body text-center'>
     <h5 class='card-title text-danger fw-bold'>$row[ptype]</h5>
     <p class='card-text text-danger fw-bold'>RS: $row[pprice]</p>
@@ -58,7 +59,6 @@ echo "
     <input type='submit' class='btn btn-danger' name='addCart' value='Add To Card'>
   </div>
 </div>
-</form>
 </div>
 ";
 }
@@ -68,7 +68,7 @@ echo "
             </div>
             </div>
 
-<?php
+            <?php
 include'footer.php';
 
 ?>
